@@ -1,5 +1,6 @@
 ---
 - name: install demo 
+  hosts: test_servers
   tasks:
     - name: Install list of packages
       action: apt pkg={{item}} state=present
