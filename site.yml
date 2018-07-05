@@ -1,6 +1,10 @@
 ---
   - name: Test Role
-    hosts:
-      - all
-    
-      
+    hosts: all
+    tasks:
+    - name: Install Packages
+      apt: name={{item}} state=installed
+      with_items:
+        - mc
+        - mtr
+        
