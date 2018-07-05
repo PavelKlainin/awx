@@ -1,6 +1,9 @@
 ---
-- name: Install list of packages
-  action: apt pkg={{item}} state=installed
-  with_items:
-       - mc
-       - mtr
+- hosts: all
+  sudo: yes 
+  tasks:
+    - name: Install list of packages
+      action: apt pkg={{item}} state=installed
+      with_items:
+        - mc
+        - mtr
