@@ -3,8 +3,11 @@
     hosts: all
     tasks:
     - name: Install Packages
-      apt: name={{item}} state=installed
-      with_items:
-        - mc
-        - mtr
+	apt: 
+	    update_cache: yes
+    	    name="{{ packages }}"
+    vars:
+	packages:
+    	    - mc
+    	    - mtr
         
