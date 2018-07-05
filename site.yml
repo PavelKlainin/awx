@@ -1,13 +1,6 @@
 ---
-  - name: Test Role
-    hosts: all
-    tasks:
-    - name: Install Packages
-	apt: 
-	    update_cache: yes
-    	    name="{{ packages }}"
-    vars:
-	packages:
-    	    - mc
-    	    - mtr
-        
+- name: Install list of packages
+  action: apt pkg={{item}} state=installed
+  with_items:
+       - mc
+       - mtr
