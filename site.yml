@@ -1,9 +1,9 @@
 ---
-- hosts: all
-  sudo: yes 
+- name: install demo 
   tasks:
     - name: Install list of packages
-      action: apt pkg={{item}} state=installed
+      action: apt pkg={{item}} state=present
       with_items:
         - mc
         - mtr
+        - screen
